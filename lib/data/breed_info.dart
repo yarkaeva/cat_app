@@ -1,5 +1,5 @@
-class Cat {
-  Cat({
+class BreedInfo {
+  BreedInfo({
     required this.id,
     required this.name,
     required this.temperament,
@@ -17,12 +17,13 @@ class Cat {
   final String lifeSpan;
   final String? wikipediaUrl;
 
-  factory Cat.fromJson(Map<String, dynamic> json) => Cat(
-      id: json['id'],
-      name: json['name'],
-      temperament: json['temperament'],
-      origin: json['origin'],
-      description: json['description'],
-      lifeSpan: json['life_span'],
-      wikipediaUrl: json['wikipedia_url']);
+  factory BreedInfo.fromJson(Map<String, dynamic> json) => BreedInfo(
+        id: json['id'],
+        name: json['name'],
+        temperament: json['temperament'],
+        origin: json['origin'],
+        description: json['description'],
+        lifeSpan: json['life_span'],
+        wikipediaUrl: json['wikipedia_url'],
+      );
 }

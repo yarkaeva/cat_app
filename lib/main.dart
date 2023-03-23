@@ -1,3 +1,4 @@
+import 'package:fetching_data_with_cat_api/pages/cat_page.dart';
 import 'package:fetching_data_with_cat_api/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'core/theme.dart';
@@ -13,7 +14,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: CustomTheme.lightTheme,
-      home: const HomePage(),
+      routes: {
+        '/': (context) => const HomePage(),
+        '/cat_page': (context) => const CatPage(),
+      },
     );
   }
 }
