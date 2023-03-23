@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../api/cat_api.dart';
-import '../widgets/cat_info_card.dart';
+import '../api/cat_list_api.dart';
+import '../data/cat_list_item_model.dart';
+import '../widgets/cat_list_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,11 +11,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final cats = fetchCat();
+  late Future<List<CatListItemModel>> cats;
 
   @override
   void initState() {
-    fetchCat();
+    cats = fetchCatsList();
     super.initState();
   }
 
@@ -24,26 +25,27 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('CATalog'),
       ),
-      body: ListView.separated(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return FutureBuilder(
-            future: cats,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return CatInfoCard(cat: snapshot.data![index]);
-              } else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
-              }
-              return const CircularProgressIndicator();
-            },
-          );
-        },
-        separatorBuilder: (context, index) {
-          return const SizedBox(
-            height: 10,
-          );
+      body: FutureBuilder(
+        future: cats,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return ListView.separated(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
+              itemCount: snapshot.data!.length,
+              itemBuilder: (context, index) {
+                return CatListItem(cat: snapshot.data![index]);
+              },
+              separatorBuilder: (context, index) {
+                return const SizedBox(
+                  height: 10,
+                );
+              },
+            );
+          } else if (snapshot.hasError) {
+            return Text('${snapshot.error}');
+          }
+          return const CircularProgressIndicator.adaptive();
         },
       ),
     );
