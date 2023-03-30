@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../api/cat_list_api.dart';
-import '../data/cat_list_item_model.dart';
-import '../widgets/cat_list_item.dart';
+import '../api/cat_api.dart';
+import '../data/breed_list_item_model.dart';
+import '../widgets/breed_list_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late Future<List<CatListItemModel>> cats;
+  late Future<List<BreedListItemModel>> cats;
 
   @override
   void initState() {
@@ -45,7 +45,9 @@ class _HomePageState extends State<HomePage> {
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
-          return const CircularProgressIndicator.adaptive();
+          return const Center(
+            child: CircularProgressIndicator.adaptive(),
+          );
         },
       ),
     );

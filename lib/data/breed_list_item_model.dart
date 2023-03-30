@@ -1,5 +1,5 @@
-class CatListItemModel {
-  CatListItemModel({
+class BreedListItemModel {
+  BreedListItemModel({
     required this.id,
     required this.name,
     required this.origin,
@@ -11,8 +11,8 @@ class CatListItemModel {
   final String origin;
   final String? imageId;
 
-  factory CatListItemModel.fromJson(Map<String, dynamic> json) =>
-      CatListItemModel(
+  factory BreedListItemModel.fromJson(Map<String, dynamic> json) =>
+      BreedListItemModel(
         id: json['id'],
         name: json['name'],
         origin: json['origin'],
