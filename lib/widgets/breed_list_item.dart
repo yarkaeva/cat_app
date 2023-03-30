@@ -1,15 +1,15 @@
-import 'package:fetching_data_with_cat_api/data/cat_list_item_model.dart';
+import 'package:fetching_data_with_cat_api/data/breed_list_item_model.dart';
 import 'package:flutter/material.dart';
 
 class CatListItem extends StatelessWidget {
   const CatListItem({super.key, required this.cat});
-  final CatListItemModel cat;
+  final BreedListItemModel cat;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/cat_page', arguments: cat.imageId);
+        Navigator.pushNamed(context, '/cat-page', arguments: cat.imageId);
       },
       child: Container(
         decoration: BoxDecoration(

@@ -1,5 +1,5 @@
-import 'package:fetching_data_with_cat_api/api/cat_card_api.dart';
-import 'package:fetching_data_with_cat_api/widgets/cat_card_widget.dart';
+import 'package:fetching_data_with_cat_api/api/cat_api.dart';
+import 'package:fetching_data_with_cat_api/widgets/breed_card_widget.dart';
 import 'package:flutter/material.dart';
 
 class CatPage extends StatefulWidget {
@@ -21,13 +21,15 @@ class _CatPageState extends State<CatPage> {
         future: fetchCatInfo(imageId),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return CatCardWidget(
+            return BreedCardWidget(
               cat: snapshot.data!,
             );
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
-          return const CircularProgressIndicator.adaptive();
+          return const Center(
+            child: CircularProgressIndicator.adaptive(),
+          );
         },
       ),
     );

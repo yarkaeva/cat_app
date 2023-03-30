@@ -4,28 +4,30 @@ import 'package:webview_flutter/webview_flutter.dart';
 class WikiPage extends StatefulWidget {
   const WikiPage({
     super.key,
-    required this.wikiUrl,
   });
-  final String wikiUrl;
 
   @override
   State<WikiPage> createState() => _WikiPageState();
 }
 
 class _WikiPageState extends State<WikiPage> {
-  WebViewController get controller => WebViewController()
-    ..loadRequest(
-      Uri.parse(widget.wikiUrl),
-    );
+  WebViewController _setController(String wikiUrl) {
+    WebViewController controller = WebViewController()
+      ..loadRequest(
+        Uri.parse(wikiUrl),
+      );
+    return controller;
+  }
 
   @override
   Widget build(BuildContext context) {
+    final String wikiUrl = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Wikipedia'),
       ),
       body: WebViewWidget(
-        controller: controller,
+        controller: _setController(wikiUrl),
       ),
     );
   }

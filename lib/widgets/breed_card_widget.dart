@@ -1,9 +1,9 @@
-import 'package:fetching_data_with_cat_api/data/cat_card_model.dart';
+import 'package:fetching_data_with_cat_api/data/breed_card_model.dart';
 import 'package:flutter/material.dart';
 
-class CatCardWidget extends StatelessWidget {
-  const CatCardWidget({super.key, required this.cat});
-  final CatCardModel cat;
+class BreedCardWidget extends StatelessWidget {
+  const BreedCardWidget({super.key, required this.cat});
+  final BreedCardModel cat;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class CatCardWidget extends StatelessWidget {
               ),
               TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/cat_page_wiki',
+                    Navigator.pushNamed(context, '/cat-page-wiki',
                         arguments: cat.breed.wikipediaUrl);
                   },
                   child: Row(

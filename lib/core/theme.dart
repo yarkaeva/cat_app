@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 class CustomTheme {
   static ThemeData get lightTheme => ThemeData(
+        progressIndicatorTheme: const ProgressIndicatorThemeData(
+          color: Colors.teal,
+        ),
         appBarTheme: const AppBarTheme(
           centerTitle: true,
           backgroundColor: Colors.black,
