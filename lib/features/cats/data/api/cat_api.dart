@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:fetching_data_with_cat_api/features/cats/data/models/breed_list_item_model.dart';
-import 'package:fetching_data_with_cat_api/features/cats/data/models/breed_card_model.dart';
+import 'package:cat_app/features/cats/data/models/breed_list_item_model.dart';
+import 'package:cat_app/features/cats/data/models/breed_card_model.dart';
 import 'package:http/http.dart' as http;
 
 class ApiConfig {

@@ -1,9 +1,9 @@
-import 'package:fetching_data_with_cat_api/features/cats/data/models/breed_card_model.dart';
+import 'package:cat_app/features/cats/domain/entity/breed_card.dart';
 import 'package:flutter/material.dart';
 
 class BreedCardWidget extends StatelessWidget {
   const BreedCardWidget({super.key, required this.cat});
-  final BreedCardModel cat;
+  final BreedCard cat;
 
   @override
   Widget build(BuildContext context) {

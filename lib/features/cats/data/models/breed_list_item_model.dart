@@ -1,3 +1,5 @@
+import 'package:cat_app/features/cats/domain/entity/breed_list_item.dart';
+
 class BreedListItemModel {
   BreedListItemModel({
     required this.id,
@@ -17,5 +19,11 @@ class BreedListItemModel {
         name: json['name'],
         origin: json['origin'],
         imageId: json['reference_image_id'],
+      );
+  BreedListItem toEntity() => BreedListItem(
+        id: id,
+        name: name,
+        origin: origin,
+        imageId: imageId,
       );
 }

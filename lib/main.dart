@@ -1,6 +1,6 @@
-import 'package:fetching_data_with_cat_api/features/cats/presentation/pages/breed_page.dart';
-import 'package:fetching_data_with_cat_api/features/cats/presentation/pages/home_page.dart';
-import 'package:fetching_data_with_cat_api/features/cats/presentation/pages/wiki_page.dart';
+import 'package:cat_app/features/cats/presentation/pages/breed_page.dart';
+import 'package:cat_app/features/cats/presentation/pages/home_page.dart';
+import 'package:cat_app/features/cats/presentation/pages/wiki_page.dart';
 import 'package:flutter/material.dart';
 import 'core/theme.dart';
 

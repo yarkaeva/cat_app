@@ -1,5 +1,7 @@
-class BreedInfo {
-  BreedInfo({
+import 'package:cat_app/features/cats/domain/entity/breed_info.dart';
+
+class BreedInfoModel {
+  BreedInfoModel({
     required this.id,
     required this.name,
     required this.temperament,
@@ -17,7 +19,7 @@ class BreedInfo {
   final String lifeSpan;
   final String? wikipediaUrl;
 
-  factory BreedInfo.fromJson(Map<String, dynamic> json) => BreedInfo(
+  factory BreedInfoModel.fromJson(Map<String, dynamic> json) => BreedInfoModel(
         id: json['id'],
         name: json['name'],
         temperament: json['temperament'],
@@ -25,5 +27,15 @@ class BreedInfo {
         description: json['description'],
         lifeSpan: json['life_span'],
         wikipediaUrl: json['wikipedia_url'],
+      );
+
+  BreedInfo toEntity() => BreedInfo(
+        id: id,
+        name: name,
+        temperament: temperament,
+        origin: origin,
+        description: description,
+        lifeSpan: lifeSpan,
+        wikipediaUrl: wikipediaUrl,
       );
 }

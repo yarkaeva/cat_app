@@ -1,4 +1,5 @@
-import 'package:fetching_data_with_cat_api/features/cats/data/models/breed_info.dart';
+import 'package:cat_app/features/cats/data/models/breed_info.dart';
+import 'package:cat_app/features/cats/domain/entity/breed_card.dart';
 
 class BreedCardModel {
   BreedCardModel({
@@ -9,14 +10,19 @@ class BreedCardModel {
 
   final String imageId;
   final String url;
-  final BreedInfo breed;
+  final BreedInfoModel breed;
 
   factory BreedCardModel.fromJson(Map<String, dynamic> json) => BreedCardModel(
         imageId: json['id'],
         url: json['url'],
         breed: (json['breeds'] as List<dynamic>)
-            .map((e) => BreedInfo.fromJson(e as Map<String, dynamic>))
+            .map((e) => BreedInfoModel.fromJson(e as Map<String, dynamic>))
             .toList()
             .first,
+      );
+  BreedCard toEntity() => BreedCard(
+        imageId: imageId,
+        url: url,
+        breed: breed.toEntity(),
       );
 }

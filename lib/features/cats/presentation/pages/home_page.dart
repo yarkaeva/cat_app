@@ -1,6 +1,5 @@
+import 'package:cat_app/features/cats/data/repository/cat_data_repository.dart';
 import 'package:flutter/material.dart';
-import '../../data/api/cat_api.dart';
-import '../../data/models/breed_list_item_model.dart';
 import '../widgets/breed_list_item.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,13 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late Future<List<BreedListItemModel>> cats;
-
-  @override
-  void initState() {
-    cats = fetchCatsList();
-    super.initState();
-  }
+  final CatRepositoryImpl _repo = CatRepositoryImpl();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +19,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text('CATalog'),
       ),
       body: FutureBuilder(
-        future: cats,
+        future: _repo.getCatsList(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.separated(
