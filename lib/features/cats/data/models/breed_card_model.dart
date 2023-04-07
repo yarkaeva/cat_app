@@ -1,4 +1,4 @@
-import 'package:fetching_data_with_cat_api/data/breed_info.dart';
+import 'package:fetching_data_with_cat_api/features/cats/data/models/breed_info.dart';
 
 class BreedCardModel {
   BreedCardModel({

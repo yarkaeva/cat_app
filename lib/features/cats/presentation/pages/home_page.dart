@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../api/cat_api.dart';
-import '../data/breed_list_item_model.dart';
+import '../../data/api/cat_api.dart';
+import '../../data/models/breed_list_item_model.dart';
 import '../widgets/breed_list_item.dart';
 
 class HomePage extends StatefulWidget {

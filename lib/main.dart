@@ -1,6 +1,6 @@
-import 'package:fetching_data_with_cat_api/pages/breed_page.dart';
-import 'package:fetching_data_with_cat_api/pages/home_page.dart';
-import 'package:fetching_data_with_cat_api/pages/wiki_page.dart';
+import 'package:fetching_data_with_cat_api/features/cats/presentation/pages/breed_page.dart';
+import 'package:fetching_data_with_cat_api/features/cats/presentation/pages/home_page.dart';
+import 'package:fetching_data_with_cat_api/features/cats/presentation/pages/wiki_page.dart';
 import 'package:flutter/material.dart';
 import 'core/theme.dart';
 
@@ -18,7 +18,7 @@ class App extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         '/cat-page': (context) => const CatPage(),
-        '/cat-page-wiki': (context) => WikiPage(),
+        '/cat-page-wiki': (context) => const WikiPage(),
       },
     );
   }

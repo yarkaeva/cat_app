@@ -1,5 +1,5 @@
-import 'package:fetching_data_with_cat_api/api/cat_api.dart';
-import 'package:fetching_data_with_cat_api/widgets/breed_card_widget.dart';
+import 'package:fetching_data_with_cat_api/features/cats/data/api/cat_api.dart';
+import 'package:fetching_data_with_cat_api/features/cats/presentation/widgets/breed_card_widget.dart';
 import 'package:flutter/material.dart';
 
 class CatPage extends StatefulWidget {

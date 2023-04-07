@@ -1,4 +1,4 @@
-import 'package:fetching_data_with_cat_api/data/breed_card_model.dart';
+import 'package:fetching_data_with_cat_api/features/cats/data/models/breed_card_model.dart';
 import 'package:flutter/material.dart';
 
 class BreedCardWidget extends StatelessWidget {
