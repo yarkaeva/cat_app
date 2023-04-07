@@ -8,7 +8,10 @@ class BreedCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        padding: const EdgeInsets.symmetric(
+          vertical: 10,
+          horizontal: 20,
+        ),
         children: [
           Image.network(cat.url),
           Column(
@@ -31,6 +34,18 @@ class BreedCardWidget extends StatelessWidget {
                 'average life span: ${cat.breed.lifeSpan}',
                 style: Theme.of(context).textTheme.bodySmall,
               ),
+              TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/cat-page-wiki',
+                        arguments: cat.breed.wikipediaUrl);
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const [
+                      Text('See on Wiki'),
+                      Icon(Icons.search),
+                    ],
+                  ))
             ],
           ),
         ]);

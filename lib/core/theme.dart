@@ -14,6 +14,11 @@ class CustomTheme {
             fontWeight: FontWeight.w700,
           ),
         ),
+        textButtonTheme: const TextButtonThemeData(
+          style: ButtonStyle(
+            foregroundColor: MaterialStatePropertyAll(Colors.teal),
+          ),
+        ),
         textTheme: const TextTheme(
           bodyLarge: TextStyle(
             fontSize: 25,
