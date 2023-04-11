@@ -13,7 +13,8 @@ class BreedCardWidget extends StatelessWidget {
           horizontal: 20,
         ),
         children: [
-          Image.network(cat.url),
+          FadeInImage.assetNetwork(
+              placeholder: 'images/gif_cat.gif', image: cat.url),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [

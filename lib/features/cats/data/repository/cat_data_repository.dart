@@ -5,7 +5,7 @@ import 'package:cat_app/features/cats/domain/repository/cat_repository.dart';
 
 class CatRepositoryImpl extends CatRepository {
   @override
-  Future<BreedCard> getCat(imageId) async {
+  Future<BreedCard> getCat(String imageId) async {
     var cat = await fetchCatInfo(imageId);
     return cat.toEntity();
   }
