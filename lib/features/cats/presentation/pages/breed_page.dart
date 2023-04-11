@@ -12,21 +12,17 @@ class CatPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('CATalog'),
       ),
-      body: Consumer<BreedCardController>(
-        builder: (context, controller, child) {
-          return FutureBuilder(
-            future: controller.loadCat(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return BreedCardWidget(
-                  cat: snapshot.data!,
-                );
-              } else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
-              }
-              return const Center(child: CircularProgressIndicator.adaptive());
-            },
-          );
+      body: FutureBuilder(
+        future: Provider.of<BreedCardController>(context).loadCat(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return BreedCardWidget(
+              cat: snapshot.data!,
+            );
+          } else if (snapshot.hasError) {
+            return Text('${snapshot.error}');
+          }
+          return const Center(child: CircularProgressIndicator.adaptive());
         },
       ),
     );
