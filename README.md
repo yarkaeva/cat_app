@@ -1,3 +1,5 @@
-# fetching_data_with_cat_api
+# Cat_App
 
-A new Flutter project.
+Simple app that uses "CatApi"(https://thecatapi.com/).
+The application was created for practicing skills.
+Included http requests, basic principles of clean architecture, state managment (provider).
