@@ -1,5 +1,5 @@
 import 'package:cat_app/features/cats/domain/entity/breed_list_item.dart';
-import 'package:cat_app/features/cats/presentation/controller/breed_card_controller.dart';
+import 'package:cat_app/features/cats/presentation/controllers/breed_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

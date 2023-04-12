@@ -1,5 +1,4 @@
-import 'package:cat_app/features/cats/presentation/controller/breed_card_controller.dart';
-import 'package:cat_app/features/cats/presentation/controller/breed_list_controller.dart';
+import 'package:cat_app/features/cats/presentation/controllers/breed_card_controller.dart';
 import 'package:cat_app/features/cats/presentation/pages/breed_page.dart';
 import 'package:cat_app/features/cats/presentation/pages/home_page.dart';
 import 'package:cat_app/features/cats/presentation/pages/wiki_page.dart';
@@ -16,15 +15,8 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (context) => BreedListController(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => BreedCardController(),
-        ),
-      ],
+    return Provider<BreedCardController>(
+      create: (context) => BreedCardController(),
       builder: (context, child) => MaterialApp(
         theme: CustomTheme.lightTheme,
         routes: {
