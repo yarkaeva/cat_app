@@ -21,13 +21,5 @@ class BreedInfoModel extends BreedInfo {
         wikipediaUrl: json['wikipedia_url'],
       );
 
-  BreedInfo toEntity() => BreedInfo(
-        id: id,
-        name: name,
-        temperament: temperament,
-        origin: origin,
-        description: description,
-        lifeSpan: lifeSpan,
-        wikipediaUrl: wikipediaUrl,
-      );
+  
 }
