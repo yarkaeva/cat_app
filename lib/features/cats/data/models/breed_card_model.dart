@@ -1,16 +1,12 @@
 import 'package:cat_app/features/cats/data/models/breed_info.dart';
 import 'package:cat_app/features/cats/domain/entity/breed_card.dart';
 
-class BreedCardModel {
+class BreedCardModel extends BreedCard {
   BreedCardModel({
-    required this.imageId,
-    required this.url,
-    required this.breed,
+    required super.imageId,
+    required super.url,
+    required super.breed,
   });
-
-  final String imageId;
-  final String url;
-  final BreedInfoModel breed;
 
   factory BreedCardModel.fromJson(Map<String, dynamic> json) => BreedCardModel(
         imageId: json['id'],
@@ -23,6 +19,6 @@ class BreedCardModel {
   BreedCard toEntity() => BreedCard(
         imageId: imageId,
         url: url,
-        breed: breed.toEntity(),
+        breed: breed,
       );
 }

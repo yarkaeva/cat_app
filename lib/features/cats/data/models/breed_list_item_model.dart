@@ -1,17 +1,12 @@
 import 'package:cat_app/features/cats/domain/entity/breed_list_item.dart';
 
-class BreedListItemModel {
+class BreedListItemModel extends BreedListItem {
   BreedListItemModel({
-    required this.id,
-    required this.name,
-    required this.origin,
-    required this.imageId,
+    required super.id,
+    required super.name,
+    required super.origin,
+    required super.imageId,
   });
-
-  final String id;
-  final String name;
-  final String origin;
-  final String? imageId;
 
   factory BreedListItemModel.fromJson(Map<String, dynamic> json) =>
       BreedListItemModel(

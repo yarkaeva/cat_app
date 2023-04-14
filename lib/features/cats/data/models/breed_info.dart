@@ -1,23 +1,15 @@
 import 'package:cat_app/features/cats/domain/entity/breed_info.dart';
 
-class BreedInfoModel {
+class BreedInfoModel extends BreedInfo {
   BreedInfoModel({
-    required this.id,
-    required this.name,
-    required this.temperament,
-    required this.origin,
-    required this.description,
-    required this.lifeSpan,
-    required this.wikipediaUrl,
+    required super.id,
+    required super.name,
+    required super.temperament,
+    required super.origin,
+    required super.description,
+    required super.lifeSpan,
+    required super.wikipediaUrl,
   });
-
-  final String id;
-  final String name;
-  final String temperament;
-  final String origin;
-  final String description;
-  final String lifeSpan;
-  final String? wikipediaUrl;
 
   factory BreedInfoModel.fromJson(Map<String, dynamic> json) => BreedInfoModel(
         id: json['id'],
