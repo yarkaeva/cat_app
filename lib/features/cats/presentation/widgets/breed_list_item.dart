@@ -1,7 +1,5 @@
 import 'package:cat_app/features/cats/domain/entity/breed_list_item.dart';
-import 'package:cat_app/features/cats/presentation/controllers/breed_card_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class CatListItem extends StatelessWidget {
   const CatListItem({super.key, required this.cat});
@@ -11,10 +9,7 @@ class CatListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        if (cat.imageId != null) {
-          context.read<BreedCardController>().setImageId(cat.imageId!);
-        }
-        Navigator.pushNamed(context, '/cat-page');
+        Navigator.pushNamed(context, '/cat-page', arguments: cat.imageId);
       },
       child: Container(
         decoration: BoxDecoration(
