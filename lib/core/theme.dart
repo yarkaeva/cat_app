@@ -3,9 +3,16 @@ import 'package:flutter/material.dart';
 class CustomTheme {
   static ThemeData get lightTheme => ThemeData(
         progressIndicatorTheme: const ProgressIndicatorThemeData(
+          linearMinHeight: 6,
+          linearTrackColor: Color.fromARGB(255, 192, 192, 192),
           color: Colors.teal,
         ),
         appBarTheme: const AppBarTheme(
+          toolbarTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 17,
+          ),
+          toolbarHeight: 80,
           centerTitle: true,
           backgroundColor: Colors.black,
           titleTextStyle: TextStyle(
@@ -17,6 +24,7 @@ class CustomTheme {
         textButtonTheme: const TextButtonThemeData(
           style: ButtonStyle(
             foregroundColor: MaterialStatePropertyAll(Colors.teal),
+            splashFactory: NoSplash.splashFactory,
           ),
         ),
         textTheme: const TextTheme(

@@ -11,24 +11,83 @@ class WikiPage extends StatefulWidget {
 }
 
 class _WikiPageState extends State<WikiPage> {
-  WebViewController _setController(String wikiUrl) {
-    WebViewController controller = WebViewController()
-      ..loadRequest(
-        Uri.parse(wikiUrl),
-      );
-    return controller;
+  late final WebViewController controller;
+  double loadStatus = 0;
+
+  @override
+  void didChangeDependencies() {
+    final String wikiUrl = ModalRoute.of(context)?.settings.arguments as String;
+    controller = WebViewController()
+      ..setNavigationDelegate(NavigationDelegate(
+          onPageStarted: (_) {
+            setState(() {
+              loadStatus = 0;
+            });
+          },
+          onProgress: (progress) {
+            setState(() {
+              loadStatus = (progress / 100).toDouble();
+            });
+          },
+          onPageFinished: (_) => setState(() {
+                loadStatus = 100;
+              })))
+      ..loadRequest(Uri.parse(wikiUrl));
+    super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
-    final String wikiUrl = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       appBar: AppBar(
+        leading: TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text(
+            'Done',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 17,
+            ),
+          ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              if (await controller.canGoBack()) {
+                controller.goBack();
+              }
+              controller.goBack();
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
+          IconButton(
+            onPressed: () async {
+              if (await controller.canGoForward()) {
+                controller.goForward();
+              }
+              controller.goBack();
+            },
+            icon: const Icon(Icons.arrow_forward),
+          ),
+          IconButton(
+            onPressed: () {
+              controller.reload();
+              loadStatus = 0;
+            },
+            icon: const Icon(Icons.refresh),
+          ),
+        ],
         title: const Text('Wikipedia'),
       ),
-      body: WebViewWidget(
-        controller: _setController(wikiUrl),
-      ),
+      body: Stack(children: [
+        WebViewWidget(controller: controller),
+        if (loadStatus < 100)
+          LinearProgressIndicator(
+            value: loadStatus,
+          ),
+      ]),
     );
   }
 }
