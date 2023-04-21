@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:cat_app/features/cats/domain/entity/breed_list_item.dart';
 import 'package:cat_app/features/cats/domain/repository/cat_repository.dart';
+import 'package:equatable/equatable.dart';
 
 part 'breed_list_event.dart';
 part 'breed_list_state.dart';
