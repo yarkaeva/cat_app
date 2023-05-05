@@ -10,13 +10,13 @@ class BreedCardBloc extends Bloc<BreedCardEvent, BreedCardState> {
   final CatRepository _repository;
   BreedCardBloc(CatRepository repository)
       : _repository = repository,
-        super(CardLoadInProgress()) {
-    on<CardLoadRequested>(_onCardLoadRequested);
+        super(InitialState()) {
+    on<LoadCard>(_onLoadCard);
   }
 
-  Future<void> _onCardLoadRequested(
-      CardLoadRequested event, Emitter<BreedCardState> emit) async {
+  Future<void> _onLoadCard(LoadCard event, Emitter<BreedCardState> emit) async {
     try {
+      emit(CardLoadInProgress());
       final cat = await _repository.getCat(event.imageId);
       emit(CardLoadSuccess(cat));
     } catch (_) {

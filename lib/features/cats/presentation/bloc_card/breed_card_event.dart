@@ -4,7 +4,7 @@ abstract class BreedCardEvent {
   const BreedCardEvent();
 }
 
-class CardLoadRequested extends BreedCardEvent {
+class LoadCard extends BreedCardEvent {
   final String imageId;
-  const CardLoadRequested(this.imageId);
+  const LoadCard(this.imageId);
 }

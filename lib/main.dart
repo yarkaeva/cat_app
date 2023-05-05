@@ -17,8 +17,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<BreedListBloc>(
-      create: (context) =>
-          BreedListBloc(CatRepositoryImpl())..add(ListLoadRequested()),
+      create: (context) => BreedListBloc(CatRepositoryImpl())..add(LoadList()),
       child: MaterialApp(
         theme: CustomTheme.lightTheme,
         routes: {

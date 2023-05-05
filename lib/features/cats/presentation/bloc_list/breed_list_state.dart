@@ -7,6 +7,8 @@ abstract class BreedListState extends Equatable {
   const BreedListState();
 }
 
+class InitialState extends BreedListState {}
+
 class ListLoadInProgress extends BreedListState {}
 
 class ListLoadSuccess extends BreedListState {

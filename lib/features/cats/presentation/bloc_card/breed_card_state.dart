@@ -7,6 +7,8 @@ abstract class BreedCardState extends Equatable {
   List<Object> get props => [];
 }
 
+class InitialState extends BreedCardState {}
+
 class CardLoadInProgress extends BreedCardState {}
 
 class CardLoadSuccess extends BreedCardState {

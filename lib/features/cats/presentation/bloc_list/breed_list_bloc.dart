@@ -10,13 +10,13 @@ class BreedListBloc extends Bloc<BreedListEvent, BreedListState> {
   final CatRepository _repository;
   BreedListBloc(CatRepository repository)
       : _repository = repository,
-        super(ListLoadInProgress()) {
-    on<ListLoadRequested>(_onListLoadRequested);
+        super(InitialState()) {
+    on<LoadList>(_onLoadList);
   }
 
-  Future<void> _onListLoadRequested(
-      ListLoadRequested event, Emitter<BreedListState> emit) async {
+  Future<void> _onLoadList(LoadList event, Emitter<BreedListState> emit) async {
     try {
+      emit(ListLoadInProgress());
       final cats = await _repository.getCatsList();
       return emit(ListLoadSuccess(cats));
     } catch (_) {

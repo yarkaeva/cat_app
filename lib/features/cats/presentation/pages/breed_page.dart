@@ -16,7 +16,7 @@ class CatPage extends StatelessWidget {
       ),
       body: BlocProvider<BreedCardBloc>(
         create: (context) =>
-            BreedCardBloc(CatRepositoryImpl())..add(CardLoadRequested(imageId)),
+            BreedCardBloc(CatRepositoryImpl())..add(LoadCard(imageId)),
         child: BlocBuilder<BreedCardBloc, BreedCardState>(
           builder: (context, state) {
             if (state is CardLoadInProgress) {
