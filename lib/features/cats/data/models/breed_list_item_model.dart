@@ -1,6 +1,6 @@
 import 'package:cat_app/features/cats/domain/entity/breed_list_item.dart';
 
-class BreedListItemModel extends BreedListItem {
+class BreedListItemModel extends BreedListItemEntity {
   BreedListItemModel({
     required super.id,
     required super.name,
@@ -15,7 +15,7 @@ class BreedListItemModel extends BreedListItem {
         origin: json['origin'],
         imageId: json['reference_image_id'],
       );
-  BreedListItem toEntity() => BreedListItem(
+  BreedListItemEntity toEntity() => BreedListItemEntity(
         id: id,
         name: name,
         origin: origin,

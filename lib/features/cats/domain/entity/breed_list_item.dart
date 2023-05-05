@@ -1,5 +1,5 @@
-class BreedListItem {
-  BreedListItem({
+class BreedListItemEntity {
+  BreedListItemEntity({
     required this.id,
     required this.name,
     required this.origin,

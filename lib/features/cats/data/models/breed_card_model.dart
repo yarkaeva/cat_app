@@ -1,7 +1,7 @@
 import 'package:cat_app/features/cats/data/models/breed_info.dart';
 import 'package:cat_app/features/cats/domain/entity/breed_card.dart';
 
-class BreedCardModel extends BreedCard {
+class BreedCardModel extends BreedCardEntity {
   BreedCardModel({
     required super.imageId,
     required super.url,
@@ -16,7 +16,7 @@ class BreedCardModel extends BreedCard {
             .toList()
             .first,
       );
-  BreedCard toEntity() => BreedCard(
+  BreedCardEntity toEntity() => BreedCardEntity(
         imageId: imageId,
         url: url,
         breed: breed,

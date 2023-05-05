@@ -1,7 +1,7 @@
 import 'package:cat_app/features/cats/domain/entity/breed_info.dart';
 
-class BreedCard {
-  BreedCard({
+class BreedCardEntity {
+  BreedCardEntity({
     required this.imageId,
     required this.url,
     required this.breed,

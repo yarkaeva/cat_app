@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CatListItem extends StatelessWidget {
   const CatListItem({super.key, required this.cat});
-  final BreedListItem cat;
+  final BreedListItemEntity cat;
 
   @override
   Widget build(BuildContext context) {

@@ -12,7 +12,7 @@ class InitialState extends BreedCardState {}
 class CardLoadInProgress extends BreedCardState {}
 
 class CardLoadSuccess extends BreedCardState {
-  final BreedCard cat;
+  final BreedCardEntity cat;
   const CardLoadSuccess(this.cat);
 }
 

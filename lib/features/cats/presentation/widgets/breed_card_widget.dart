@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class BreedCardWidget extends StatelessWidget {
   const BreedCardWidget({super.key, required this.cat});
-  final BreedCard cat;
+  final BreedCardEntity cat;
 
   @override
   Widget build(BuildContext context) {

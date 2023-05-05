@@ -12,7 +12,7 @@ class InitialState extends BreedListState {}
 class ListLoadInProgress extends BreedListState {}
 
 class ListLoadSuccess extends BreedListState {
-  final List<BreedListItem> cats;
+  final List<BreedListItemEntity> cats;
   @override
   List<Object> get props => [cats];
   const ListLoadSuccess(this.cats);
